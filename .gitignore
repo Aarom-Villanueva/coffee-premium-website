@@ -50,3 +50,7 @@ Thumbs.db
 
 # Design reference
 reference/
+
+# AI assistant files
+CLAUDE.md
+AGENTS.md
