@@ -1,26 +1,63 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import 'tailwindcss';
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-espresso: #120e0b;
+  --color-cream: #efe4d2;
+  --color-copper: #d6a273;
+  --color-copper-deep: #c8925f;
+  --color-rule: #3b2e25;
+  --color-ink: #1c1612;
+  --color-muted: #b9ab97;
+  --color-faint: #8a7a67;
+  --color-warm: #e2d6c3;
+  --color-dim: #6f6254;
+
+  --font-sans: var(--font-archivo);
+  --font-serif: var(--font-instrument-serif);
+
+  --breakpoint-nav: 860px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--color-espresso);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-espresso);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-copper-deep);
+  color: var(--color-espresso);
+}
+
+/* Shared page-shell: max-width + centered + fluid side padding, reused by every section. */
+.shell {
+  margin-inline: auto;
+  max-width: 1440px;
+  padding-inline: clamp(20px, 5vw, 72px);
+  box-sizing: border-box;
+}
+
+/* Hero background art direction: same image, different focal point per breakpoint. */
+.hero-image-position {
+  object-position: 0% 50%;
+}
+
+@media (max-width: 860px) {
+  .hero-image-position {
+    object-position: 72% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
